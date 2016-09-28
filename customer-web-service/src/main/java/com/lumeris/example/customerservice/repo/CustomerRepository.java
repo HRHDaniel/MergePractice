@@ -29,6 +29,10 @@ public class CustomerRepository {
 	public List<Customer> findByLastName(String lastName) {
 		return findAll().stream().filter(c -> c.getLastName().equals(lastName)).collect(Collectors.toList());
 	}
+	
+	public List<Customer> findByLastNameIgnoreCase(String lastName) {
+		return findAll().stream().filter(c -> c.getLastName().equalsIgnoreCase(lastName)).collect(Collectors.toList());
+	}
 
 	private Customer createCustomer(String firstName, String lastName) {
 		Customer c = new Customer();
